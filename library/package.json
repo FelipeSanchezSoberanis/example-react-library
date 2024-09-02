@@ -10,10 +10,10 @@
       "require": "./dist/components.cjs",
       "types": "./dist/components/index.d.ts"
     },
-    "./styles": {
-      "import": "./dist/styles.js",
-      "require": "./dist/styles.cjs",
-      "types": "./dist/styles/index.d.ts"
+    "./themes": {
+      "import": "./dist/themes.js",
+      "require": "./dist/themes.cjs",
+      "types": "./dist/themes/index.d.ts"
     }
   },
   "scripts": {

@@ -1,6 +1,6 @@
 import { createTheme } from "@mui/material";
 
-export const styleOne = createTheme({
+export const themeOne = createTheme({
   palette: {
     primary: {
       main: "#a161b8"
@@ -8,7 +8,7 @@ export const styleOne = createTheme({
   }
 });
 
-export const styleTwo = createTheme({
+export const themeTwo = createTheme({
   palette: {
     primary: {
       main: "#d99e42"
@@ -16,7 +16,7 @@ export const styleTwo = createTheme({
   }
 });
 
-export const styleThree = createTheme({
+export const themeThree = createTheme({
   palette: {
     primary: {
       main: "#370610"

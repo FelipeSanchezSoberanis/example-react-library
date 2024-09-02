@@ -9,7 +9,7 @@ export default defineConfig({
     lib: {
       entry: {
         components: resolve(__dirname, join("src", "components", "index.ts")),
-        styles: resolve(__dirname, join("src", "styles", "index.ts"))
+        themes: resolve(__dirname, join("src", "themes", "index.ts"))
       }
     },
     rollupOptions: {

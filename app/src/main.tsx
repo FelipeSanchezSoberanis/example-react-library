@@ -3,9 +3,9 @@ import { createRoot } from "react-dom/client";
 import App from "./App.tsx";
 import "./index.css";
 import { ThemeProvider } from "@mui/material";
-import { styleOne, styleTwo, styleThree } from "library/styles";
+import { themeOne, themeTwo, themeThree } from "library/themes";
 
-const themes = [styleOne, styleTwo, styleThree];
+const themes = [themeOne, themeTwo, themeThree];
 const theme = themes[Math.floor(Math.random() * themes.length)];
 
 createRoot(document.getElementById("root")!).render(
