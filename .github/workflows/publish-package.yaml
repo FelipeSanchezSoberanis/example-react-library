@@ -8,13 +8,13 @@ jobs:
   publish-package:
     runs-on: ubuntu-latest
     steps:
-      - name: Publish package
+      - name: Chekout code
         uses: actions/checkout@v4
       - name: Setup node
         uses: actions/setup-node@v4
         with:
           node-version: 20
-      - name: Bundle
+      - name: Bundle and publish library
         run: |
           cd library
           npm ci
@@ -24,3 +24,4 @@ jobs:
           mkdir dist
           ls -I dist -I package.json | xargs -I {} mv {} dist
           npm pack
+          npm publish
