@@ -18,7 +18,7 @@ jobs:
           node-version: 20
       - name: Login to github registry
         run: |
-          echo -e "FelipeSanchezSoberanis\n${{ secrets.GITHUB_TOKEN }}" | npm login --registry https://npm.pkg.github.com/ --auth-type legacy
+          echo -e "felipesanchezsoberanis\n${{ secrets.GITHUB_TOKEN }}" | npm login --registry https://npm.pkg.github.com/ --auth-type legacy
       - name: Bundle and publish library
         run: |
           cd library
