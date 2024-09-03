@@ -3,7 +3,7 @@ on:
   push:
     branches:
       - main
-  workflow_run: null
+  workflow_dispatch: null
 jobs:
   publish-package:
     runs-on: ubuntu-latest
