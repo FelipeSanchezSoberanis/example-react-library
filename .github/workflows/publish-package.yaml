@@ -1,0 +1,32 @@
+name: Publish package
+on:
+  workflow_dispatch: null
+  push:
+    branches:
+      - main
+jobs:
+  publish-package:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Setup node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Setup github registry
+        run: |
+          touch ~/.npmrc
+          echo "@FelipeSanchezSoberanis:registry=https://npm.pkg.github.com/" >> ~/.npmrc
+          echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" >> ~/.npmrc
+      - name: Bundle and publish library
+        run: |
+          cd library
+          npm i
+          npm run build:library
+          cp package.json dist/
+          cd dist/
+          mkdir dist/
+          ls -I package.json -I dist | xargs -I {} mv {} dist/
+          npm publish
+
