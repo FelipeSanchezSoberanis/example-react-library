@@ -7,6 +7,8 @@ on:
 jobs:
   publish-package:
     runs-on: ubuntu-latest
+    permissions:
+      packages: write
     steps:
       - name: Chekout code
         uses: actions/checkout@v4
@@ -16,7 +18,7 @@ jobs:
           node-version: 20
       - name: Login to github registry
         run: |
-          echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN  }}" > ~/.npmrc
+          echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" > ~/.npmrc
           cat ~/.npmrc
       - name: Bundle and publish library
         run: |
@@ -27,5 +29,4 @@ jobs:
           cd dist
           mkdir dist
           ls -I dist -I package.json | xargs -I {} mv {} dist
-          npm pack
           npm publish
