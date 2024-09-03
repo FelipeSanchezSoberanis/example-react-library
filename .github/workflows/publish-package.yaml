@@ -16,9 +16,9 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-      - name: Login to github registry
-        run: |
-          echo -e "felipesanchezsoberanis\n${{ secrets.GITHUB_TOKEN }}" | npm login --registry https://npm.pkg.github.com/ --auth-type legacy
+          registry-url: https://npm.pkg.github.com/
+          scope: "@FelipeSanchezSoberanis"
+          token: ${{ secrets.GITHUB_TOKEN }}
       - name: Bundle and publish library
         run: |
           cd library
