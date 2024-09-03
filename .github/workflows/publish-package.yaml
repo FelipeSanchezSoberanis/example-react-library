@@ -1,0 +1,26 @@
+name: Publish package
+on:
+  push:
+    branches:
+      - main
+  workflow_run: null
+jobs:
+  publish-package:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Publish package
+        uses: actions/checkout@v4
+      - name: Setup node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Bundle
+        run: |
+          cd library
+          npm ci
+          npm run build:library
+          cp package.json dist
+          cd dist
+          mkdir dist
+          ls -I dist -I package.json | xargs -I {} mv {} dist
+          npm pack
