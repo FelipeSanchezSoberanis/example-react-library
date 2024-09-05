@@ -3,7 +3,7 @@
   "name": "@FelipeSanchezSoberanis/library",
   "repository": "https://github.com/FelipeSanchezSoberanis/example-react-library",
   "private": false,
-  "version": "0.0.5",
+  "version": "0.0.6",
   "files": [
     "dist/**"
   ],
@@ -21,7 +21,7 @@
     }
   },
   "scripts": {
-    "build:library": "vite build",
+    "build:library": "vite build && tsc",
     "build:storybook": "storybook build",
     "storybook": "storybook dev -p 6006"
   },
