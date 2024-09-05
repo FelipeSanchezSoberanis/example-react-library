@@ -1,5 +1,10 @@
 import { Button } from "@mui/material";
 
-export const TestButton = ({ text = "Click me!" }) => {
+/**
+ * @param {object} props
+ * @param {string} [props.text]
+ * @returns {import("react").JSX.Element}
+ */
+export const TestButton = ({ text }) => {
   return <Button variant="contained">{text}</Button>;
 };
