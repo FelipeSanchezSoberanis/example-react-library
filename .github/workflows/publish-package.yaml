@@ -24,9 +24,4 @@ jobs:
           cd library
           npm i
           npm run build:library
-          cp package.json dist/
-          cd dist/
-          mkdir dist/
-          ls -I package.json -I dist | xargs -I {} mv {} dist/
           npm publish
-
