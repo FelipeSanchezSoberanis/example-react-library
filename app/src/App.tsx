@@ -1,5 +1,5 @@
 import "./App.css";
-import { TestButton } from "library/components";
+import { TestButton } from "@felipesanchezsoberanis/library/components";
 import { TextField, Switch } from "@mui/material";
 
 function App() {

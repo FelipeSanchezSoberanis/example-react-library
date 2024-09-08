@@ -17,7 +17,7 @@ jobs:
       - name: Setup github registry
         run: |
           touch ~/.npmrc
-          echo "@FelipeSanchezSoberanis:registry=https://npm.pkg.github.com/" >> ~/.npmrc
+          echo "@felipesanchezsoberanis:registry=https://npm.pkg.github.com/" >> ~/.npmrc
           echo "//npm.pkg.github.com/:_authToken=${{ secrets.ACCESS_TOKEN }}" >> ~/.npmrc
       - name: Bundle and publish library
         run: |
