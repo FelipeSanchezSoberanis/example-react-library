@@ -5,7 +5,7 @@ import { TextField, Switch } from "@mui/material";
 function App() {
   return (
     <div style={{ display: "flex", columnGap: "1rem" }}>
-      <TestButton />
+      <TestButton text="text" />
       <TextField size="small" focused />
       <Switch defaultChecked />
     </div>
