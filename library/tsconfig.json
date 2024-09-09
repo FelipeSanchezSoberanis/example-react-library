@@ -1,13 +1,17 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig.json",
-  "include": ["src/components/**/*", "src/themes/**/*"],
-  "exclude": ["src/**/*.stories.*"],
   "compilerOptions": {
     "allowJs": true,
     "declaration": true,
     "emitDeclarationOnly": true,
     "outDir": "dist",
     "declarationMap": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "baseUrl": "./src",
+    "paths": {
+      "@components": ["components"],
+      "@utils": ["utils"],
+      "@themes": ["themes"]
+    }
   }
 }

@@ -21,7 +21,7 @@
     }
   },
   "scripts": {
-    "build:library": "vite build && tsc",
+    "build:library": "vite build && tsc --project tsconfig.build.json",
     "build:storybook": "storybook build",
     "storybook": "storybook dev -p 6006"
   },

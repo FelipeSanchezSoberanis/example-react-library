@@ -1,5 +1,5 @@
-import { TestButton } from "./index";
-import { createStorybookArgTypes } from "../../utils";
+import { TestButton } from "@components";
+import { createStorybookArgTypes } from "@utils";
 
 /**
  * @type {import("@storybook/react").Meta<TestButton>}
