@@ -1,3 +1,5 @@
+import { Title, Subtitle, Primary, Controls } from "@storybook/blocks";
+
 /** @type { import('@storybook/react').Preview } */
 const preview = {
   tags: ["autodocs"],
@@ -7,6 +9,16 @@ const preview = {
         color: /(background|color)$/i,
         date: /Date$/i
       }
+    },
+    docs: {
+      page: () => (
+        <>
+          <Title />
+          <Subtitle />
+          <Primary />
+          <Controls />
+        </>
+      )
     }
   }
 };

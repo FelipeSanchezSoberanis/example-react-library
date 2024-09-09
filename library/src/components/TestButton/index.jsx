@@ -1,24 +1,18 @@
 import { Button } from "@mui/material";
-import PropTypes from "prop-types";
 
 /**
- * @param {object} [props]
- *
- * @param {string} [props.hello] - Some description about this param. Defaults to "Hello";
- *
- * @param {string} [props.user] - Some description about this param. Defaults to "User";
- *
- * @returns {import("react").JSX.Element}
+ * @typedef {object} TestButtonProps
+ * @property {string} [hello] - Description about field hello. Defaults to "hello".
+ * @property {string} [name] - Description about field name. Defaults to "felipe".
  */
-export const TestButton = ({ hello = "Hello", name = "User" }) => {
+
+/**
+ * @type {import("react").FunctionComponent<TestButtonProps>} - TestButton component.
+ */
+export const TestButton = ({ name = "felipe", hello = "hello" }) => {
   return (
     <Button variant="contained">
       {hello}, {name}!
     </Button>
   );
-};
-
-TestButton.propTypes = {
-  hello: PropTypes.string,
-  name: PropTypes.string
 };
