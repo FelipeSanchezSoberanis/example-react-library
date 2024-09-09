@@ -3,7 +3,7 @@
   "name": "@felipesanchezsoberanis/library",
   "repository": "https://github.com/FelipeSanchezSoberanis/example-react-library",
   "private": false,
-  "version": "0.0.11",
+  "version": "0.0.12",
   "files": [
     "dist/**"
   ],

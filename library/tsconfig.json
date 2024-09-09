@@ -7,11 +7,11 @@
     "outDir": "dist",
     "declarationMap": true,
     "skipLibCheck": true,
-    "baseUrl": "./src",
+    "baseUrl": ".",
     "paths": {
-      "@components": ["components"],
-      "@utils": ["utils"],
-      "@themes": ["themes"]
+      "@components": ["src/components"],
+      "@utils": ["src/utils"],
+      "@themes": ["src/themes"]
     }
   }
 }
