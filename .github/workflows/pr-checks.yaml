@@ -23,6 +23,14 @@ jobs:
             for _ in $(seq 1 ${#1}); do
               separator="${separator}="
             done
+
+            echo ""
+            echo ""
+            echo "${separator}"
+            echo "${1}"
+            echo "${separator}"
+            echo ""
+            echo ""
           }
           status_message=""
           error="false"
