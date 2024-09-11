@@ -81,3 +81,8 @@ jobs:
             })
       - name: Set exit code
         run: |
+          if [ ${{ steps.generate_status.outputs.error }} = "true"]; then
+            exit 1
+          else
+            exit 0
+          fi
