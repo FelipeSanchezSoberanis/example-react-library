@@ -4,9 +4,5 @@ import { TestButton } from "@components";
 
 it("should render", () => {
   const { baseElement, container } = render(<TestButton />);
-
-
-
-
   expect(baseElement).toBeDefined();
 });
