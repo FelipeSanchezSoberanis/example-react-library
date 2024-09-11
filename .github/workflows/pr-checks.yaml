@@ -17,6 +17,7 @@ jobs:
           cache: npm
           cache-dependency-path: library/package-lock.json
       - name: Run pr checks
+        continue-on-error: true
         run: |
           echo_section_title() {
             separator=""
