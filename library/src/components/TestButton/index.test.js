@@ -3,6 +3,10 @@ import { it, expect } from "@jest/globals";
 import { TestButton } from "@components";
 
 it("should render", () => {
-  const { baseElement } = render(<TestButton />);
-  expect(baseElement).toBeDefined();
+  const { baseElement, debug } = render(<TestButton />);
+
+
+
+
+  expect(baseElement).toBeUndefined();
 });
