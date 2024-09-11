@@ -1,6 +1,6 @@
 name: Pr checks
 on:
-  pull_request_target: null
+  pull_request: null
   workflow_dispatch: null
 jobs:
   run_pr_checks:
