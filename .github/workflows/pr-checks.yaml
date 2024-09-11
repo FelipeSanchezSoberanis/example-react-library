@@ -18,10 +18,46 @@ jobs:
           cache-dependency-path: library/package-lock.json
       - name: Run pr checks
         run: |
+          echo_section_title() {
+            separator=""
+            for _ in $(seq 1 ${#1}); do
+              separator="${separator}="
+            done
+          }
+          status_message=""
+          error="false"
+
           cd library
 
+          echo_section_title "Installing dependencies"
           npm i
 
+          echo_section_title "Running tests"
           npm run test
+          if [ $? -eq 0 ]; then
+            status_message="✅ All tests passed"
+          else
+            status_message="❌ Some tests have failed"
+            error="true"
+          fi
+
+          echo_section_title "Checking formatting"
           npm run format:check
+          if [ $? -eq 0 ]; then
+            status_message="${status_message}\n✅ All files correctly formatted"
+          else
+            status_message="❌ Some files have formatting errors"
+            error="true"
+          fi
+
+          echo_section_title "Checking eslint rules"
           npm run lint
+          if [ $? -eq 0 ]; then
+            status_message="${status_message}\n✅ All files obey eslint rules"
+          else
+            status_message="❌ Some files dont obey eslint rules"
+            error="true"
+          fi
+
+          echo_section_title "Result"
+          echo -e ${status_message}
