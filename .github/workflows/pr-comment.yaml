@@ -1,9 +1,6 @@
 name: Comment pr
 on:
-  pull_request_target:
-    types:
-      - opened
-  workflow_dispatch:
+  workflow_dispatch: null
 jobs:
   comment_pr:
     runs-on: ubuntu-latest

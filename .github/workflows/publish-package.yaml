@@ -1,9 +1,6 @@
 name: Publish package
 on:
   workflow_dispatch: null
-  push:
-    branches:
-      - main
 jobs:
   publish-package:
     runs-on: ubuntu-latest
