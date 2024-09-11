@@ -4,9 +4,5 @@ import { TestButton } from "@components";
 
 it("should render", () => {
   const { baseElement, debug } = render(<TestButton />);
-
-
-
-
-  expect(baseElement).toBeUndefined();
+  expect(baseElement).toBeDefined();
 });
