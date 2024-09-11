@@ -15,7 +15,7 @@ jobs:
         with:
           node-version: 20
           cache: npm
-          cache-dependency-path: library/package-lock.json
+          cache-dependency-path: ./library/package-lock.json
       - name: Install dependencies
         working-directory: ./library
         run: |
@@ -41,32 +41,41 @@ jobs:
       - name: Generate status message and error status
         id: generate_status
         run: |
+          SUCCESS_ICON="✅"
+          ERROR_ICON="❌"
+          JEST_SUCCESS_MESSAGE="${SUCCESS_ICON} All tests passed"
+          JEST_ERROR_MESSAGE="${ERROR_ICON} Some tests have failed, run `npm run test` to see failing tests"
+          PRETTIER_SUCCESS_MESSAGE="${SUCCESS_ICON} All files correctly formatted"
+          PRETTIER_ERROR_MESSAGE="${ERROR_ICON} Some files have formatting errors, run `npm run format:check` to see formatting errors"
+          ESLINT_SUCCESS_MESSAGE="${SUCCESS_ICON} All files obey eslint rules"
+          ESLINT_ERROR_MESSAGE="${ERROR_ICON} Some files dont obey eslint rules, run `npm run lint` to see eslint errors"
+
           status_message=""
           error="false"
 
-          if [ ${{ steps.run_tests.outcome }} = "success" ]; then
-            status_message="✅ All tests passed"
+          if [ "${{ steps.run_tests.outcome }}" = "success" ]; then
+            status_message="${JEST_SUCCESS_MESSAGE}"
           else
-            status_message="❌ Some tests have failed"
+            status_message="${JEST_ERROR_MESSAGE}"
             error="true"
           fi
 
-          if [ ${{ steps.check_formatting.outcome }} = "success" ]; then
-            status_message="${status_message}\n✅ All files correctly formatted"
+          if [ "${{ steps.check_formatting.outcome }}" = "success" ]; then
+            status_message="${status_message}\n${PRETTIER_SUCCESS_MESSAGE}"
           else
-            status_message="${status_message}\n❌ Some files have formatting errors"
+            status_message="${status_message}\n${PRETTIER_ERROR_MESSAGE}"
             error="true"
           fi
 
-          if [ ${{ steps.lint.outcome }} = "success" ]; then
-            status_message="${status_message}\n✅ All files obey eslint rules"
+          if [ "${{ steps.lint.outcome }}" = "success" ]; then
+            status_message="${status_message}\n${ESLINT_SUCCESS_MESSAGE}"
           else
-            status_message="${status_message}\n❌ Some files dont obey eslint rules"
+            status_message="${status_message}\n${ESLINT_ERROR_MESSAGE}"
             error="true"
           fi
 
-          echo "status_message=${status_message}" >> $GITHUB_OUTPUT
-          echo "error=${error}" >> $GITHUB_OUTPUT
+          echo "status_message=${status_message}" >> "${GITHUB_OUTPUT}"
+          echo "error=${error}" >> "${GITHUB_OUTPUT}"
       - name: Comment pr
         uses: actions/github-script@v7
         with:
@@ -79,7 +88,7 @@ jobs:
             })
       - name: Set exit code
         run: |
-          if [ ${{ steps.generate_status.outputs.error }} = "true" ]; then
+          if [ "${{ steps.generate_status.outputs.error }}" = "true" ]; then
             exit 1
           else
             exit 0
