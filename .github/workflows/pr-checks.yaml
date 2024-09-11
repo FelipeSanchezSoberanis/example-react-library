@@ -46,7 +46,7 @@ jobs:
           if [ $? -eq 0 ]; then
             status_message="${status_message}\n✅ All files correctly formatted"
           else
-            status_message="❌ Some files have formatting errors"
+            status_message="${status_message}\n❌ Some files have formatting errors"
             error="true"
           fi
 
@@ -55,7 +55,7 @@ jobs:
           if [ $? -eq 0 ]; then
             status_message="${status_message}\n✅ All files obey eslint rules"
           else
-            status_message="❌ Some files dont obey eslint rules"
+            status_message="${status_message}\n❌ Some files dont obey eslint rules"
             error="true"
           fi
 
