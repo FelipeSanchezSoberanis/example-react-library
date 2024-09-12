@@ -2,8 +2,8 @@
   "$schema": "https://json.schemastore.org/package.json",
   "name": "@felipesanchezsoberanis/library",
   "repository": "https://github.com/FelipeSanchezSoberanis/example-react-library",
-  "private": true,
-  "version": "0.0.12",
+  "private": false,
+  "version": "0.0.1",
   "files": [
     "dist/**"
   ],
