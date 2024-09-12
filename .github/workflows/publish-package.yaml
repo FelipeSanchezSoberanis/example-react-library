@@ -4,6 +4,8 @@ on:
 jobs:
   publish-package:
     runs-on: ubuntu-latest
+    permissions:
+      packages: write
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -17,8 +19,8 @@ jobs:
           echo "@felipesanchezsoberanis:registry=https://npm.pkg.github.com/" >> ~/.npmrc
           echo "//npm.pkg.github.com/:_authToken=${{ secrets.ACCESS_TOKEN }}" >> ~/.npmrc
       - name: Bundle and publish library
+        working-directory: ./library
         run: |
-          cd library
           npm i
           npm run build:library
           npm publish
